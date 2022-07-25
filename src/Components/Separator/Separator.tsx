@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   index.tsx                                          :+:    :+:            */
+/*   Separator.tsx                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/25 10:50:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 14:35:59 by lde-la-h      ########   odam.nl         */
+/*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/07/25 15:22:23 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import App from './App';
+import "./Separator.scss";
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+/**
+ * A separator element that draws a vertical bar with a margin.
+ */
+const Separator = () => {
+	return (<div className="separator"></div>)
+}
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export default Separator;

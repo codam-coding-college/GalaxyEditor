@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   index.tsx                                          :+:    :+:            */
+/*   ComboBox.scss                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/25 10:50:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 14:35:59 by lde-la-h      ########   odam.nl         */
+/*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/07/25 18:05:47 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+#graph-cursus {
+	display: inline-block;
+	
+	margin: 4px;
+	padding: 0.4rem;
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+	border-radius: 4px;
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+	color: #ecf0f1;
+	
+	border: solid rgba(255, 255, 255, 0.1) 0.15rem;
+	background: var(--component-background);
+	cursor: pointer;
+}

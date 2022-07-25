@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   index.tsx                                          :+:    :+:            */
+/*   Toolbar.css                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/25 10:50:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 14:35:59 by lde-la-h      ########   odam.nl         */
+/*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/07/25 17:21:15 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+#editor-toolbar {
+	background-color: var(--header-background);
+	box-shadow: 2.5px 2.5px var(--header-background-shadow);
+	padding: 0.5rem;
+	border-radius: 8px;
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+#logo-toolbar {
+	margin: 4px 8px 0px 4px;
+	width: 2rem;
+	height: 2rem;
+}

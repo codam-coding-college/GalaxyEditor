@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Button.scss                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/07/25 15:50:56 by lde-la-h      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+.button {
+	border: none;
+	outline: none;
+	user-select: none;
+	text-decoration: none;
+
+	
+	cursor: pointer;
+	display: inline-block;
+	
+	margin: 4px;
+	padding: 0.4rem;
+	border-radius: 4px;
+
+	background: var(--component-background);
+	color: var(--foreground);
+
+	transition: transform 0.2s;
+	&:hover {
+		transform: translateY(-0.15rem);
+	}
+
+    // &--trigger {
+	// 	display: block;
+		
+    //     &:hover {
+    //         .button {
+    //             transform: translateY(-0.25rem);
+    //         }
+    //     }
+    // }
+}

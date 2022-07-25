@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   App.tsx                                            :+:    :+:            */
+/*   SearchBox.tsx                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 17:22:54 by lde-la-h      ########   odam.nl         */
+/*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/07/25 18:05:05 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import "./App.css";
-import Canvas from "./Containers/Canvas/Canvas"
-import Toolbar from "./Containers/Toolbar/Toolbar"
+import "./SearchBox.scss";
 import React from "react";
 
-// const Toggle = () => {
-//     const [isToggleOn, setIsToggleOn] = useState(false);
-//     // var1 setVar1
-//     const handleClick = () => {
-//         setIsToggleOn(() => !isToggleOn);
-//     };
-
-//     return <button onClick={handleClick}>{isToggleOn ? "ON" : "OFF"}</button>;
-// };
-
-function App() {
+/**
+ * A separator element that draws a vertical bar with a margin.
+ */
+const SearchBox = () => {
     return (
         <>
-			<Toolbar />
-			<Canvas />
+			<datalist id="project-datalist">
+				<option value="" />
+				<option value="libft" />
+				<option value="pipex" />
+			</datalist> 
+
+            <input
+                id="graph-search"
+                list="project-datalist"
+                placeholder="Search"
+            />
         </>
     );
-}
+};
 
-export default App;
+export default SearchBox;

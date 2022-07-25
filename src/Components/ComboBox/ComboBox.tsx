@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   index.tsx                                          :+:    :+:            */
+/*   ComboBox.tsx                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/25 10:50:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 14:35:59 by lde-la-h      ########   odam.nl         */
+/*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/07/25 18:07:29 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import App from './App';
+import "./ComboBox.scss";
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+/**
+ * A separator element that draws a vertical bar with a margin.
+ */
+const ComboBox = () => {
+	return (
+		<select id="graph-cursus" name="cursus">
+			<option value="21">42cursus</option>
+			<option value="9">C Piscine</option>
+		</select>
+	)
+}
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export default ComboBox;
