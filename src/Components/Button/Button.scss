@@ -6,16 +6,16 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 15:50:56 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/07/25 20:13:45 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 .button {
-	border: none;
 	outline: none;
 	user-select: none;
 	text-decoration: none;
-
+	border-style: solid;
+	border-width: 2.5px;
 	
 	cursor: pointer;
 	display: inline-block;
@@ -25,20 +25,24 @@
 	border-radius: 4px;
 
 	background: var(--component-background);
-	color: var(--foreground);
+	border: solid var(--component-border-color) 0.15rem;
+	color: var(--foreground-unfocused);
 
 	transition: transform 0.2s;
+
 	&:hover {
+		color: var(--foreground);
 		transform: translateY(-0.15rem);
 	}
 
-    // &--trigger {
-	// 	display: block;
-		
-    //     &:hover {
-    //         .button {
-    //             transform: translateY(-0.25rem);
-    //         }
-    //     }
-    // }
 }
+
+// &--trigger {
+// 	display: block;
+	
+//     &:hover {
+//         .button {
+//             transform: translateY(-0.25rem);
+//         }
+//     }
+// }

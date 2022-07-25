@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 18:05:05 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/07/25 20:39:40 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ const SearchBox = () => {
                 id="graph-search"
                 list="project-datalist"
                 placeholder="Search"
+				autoCorrect="false"
+				spellCheck="false"
             />
         </>
     );
