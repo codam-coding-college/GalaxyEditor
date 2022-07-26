@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/26 11:20:43 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/07/26 11:32:33 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ function print() {
  * @returns JSX.Element[] - Array of options with all the projects and their ID's.
  */
 const getCursusProjectsElements = () => {
-	return Object.entries(APIData).map((entry, _) => {
+	return Object.entries(APIData).map((entry, index) => {
 		const key = entry[1].name
 		const value = entry[1].id
-		return <option value={key}>ID: {value}</option>
+		return <option key={index} value={key}>ID: {value}</option>
 	})
 }
 
