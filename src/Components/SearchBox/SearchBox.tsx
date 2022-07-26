@@ -6,28 +6,32 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 20:39:40 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/07/26 11:20:05 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./SearchBox.scss";
 import React from "react";
 
+export interface Properties {
+    id: string
+    data: Function;
+}
+
 /**
- * A separator element that draws a vertical bar with a margin.
+ * Component that allows for searching of values with a datalist.
  */
-const SearchBox = () => {
+const SearchBox: React.FC<Properties> = ({id, data})=> {
+
     return (
         <>
-			<datalist id="project-datalist">
-				<option value="" />
-				<option value="libft" />
-				<option value="pipex" />
+			<datalist id={id}>
+                {data.call(null)}
 			</datalist> 
 
             <input
-                id="graph-search"
-                list="project-datalist"
+                className="search-box"
+                list={id}
                 placeholder="Search"
 				autoCorrect="false"
 				spellCheck="false"
