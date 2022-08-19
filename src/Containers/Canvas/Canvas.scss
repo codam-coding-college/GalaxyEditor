@@ -6,20 +6,20 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/19 16:41:00 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/19 17:37:22 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #galaxy-graph {
 	width: 100%;
     display: block;
+
+    background: radial-gradient(ellipse at bottom, #002534 25%, #090a0f 100%);
+    background-size: cover;
+    background-attachment: fixed;
 	
-	border-radius: 8px;
-
-	background: radial-gradient(ellipse at bottom, #002534 25%, #090a0f 100%);
-	background-size: cover;
-	background-attachment: fixed;
-
+    border-radius: 8px;
+	margin: 0px 0px 8px 0px;
 	border: solid var(--component-border-color) 0.2rem;
 	box-sizing: border-box;
 }

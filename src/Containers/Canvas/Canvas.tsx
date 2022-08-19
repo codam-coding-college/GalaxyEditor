@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/19 16:39:28 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/19 17:37:59 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,36 +29,22 @@ const Canvas = () => {
 
 	useEffect(() => {
 		const canvas = new fabric.Canvas(canvasEl.current);
+		
+		// TODO: Remove hardcoded 72 value:
+		// 64 from header height + 8 for margin + 16 for actual margin
 
+		// Setup events
 		window.addEventListener("resize", () =>{
 			canvas.setWidth(window.innerWidth - 16);
-			canvas.setHeight(window.innerWidth - 16);
+			canvas.setHeight(window.innerHeight - 72 - 16);
 		});
+
+		// Init
+		canvas.setWidth(window.innerWidth - 16);
+		canvas.setHeight(window.innerHeight - 72 - 16);
 	});
 
-	//window.onload = function () {
-	
-	//	// Set Canvas size
-	//	canvasEL.width = canvasScale * (window.innerWidth - 16);
-	//	canvasEL.height = canvasScale * (window.innerHeight - headerHeight - 16);
-	
-	//	init();
-	//	resetCanvas();
-	//	draw();
-	//}
-	
-	//window.addEventListener("resize", function () {
-	
-	//	// Recalculate the canvas size
-	//	canvas.width = canvasScale * (window.innerWidth - 16);
-	//	canvas.height = canvasScale * (window.innerHeight - headerHeight - 16);
-	
-	//	resetCanvas();
-	//	draw();
-	//});
-
-
-	return (<canvas id="galaxy-graph" width={window.innerWidth - 16} height={window.innerWidth - 16} ref={canvasEl} />)
+	return (<canvas id="galaxy-graph" ref={canvasEl} />)
 }
 
 export default Canvas;
