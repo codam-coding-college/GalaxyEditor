@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/19 14:35:43 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/19 16:45:36 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,7 @@ const getRegisteredCampusesElements = () => {
 
 const Toolbar = () => {
 	return (
-		<header id="editor-toolbar">
-
+		<div id="editor-toolbar">
 			{/* Toolbar stack */}
 			<div className="stack">
 
@@ -80,8 +79,7 @@ const Toolbar = () => {
 				<Button text={"Export"} callback={print} icon={"fa-solid fa-upload"}/>
 				
 			</div>
-
-		</header>
+		</div>
 	)
 }
 

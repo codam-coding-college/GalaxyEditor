@@ -6,14 +6,14 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 18:17:10 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/19 16:44:39 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./App.css";
+import React from "react";
 import Canvas from "./Containers/Canvas/Canvas"
 import Toolbar from "./Containers/Toolbar/Toolbar"
-import React from "react";
 
 // const Toggle = () => {
 //     const [isToggleOn, setIsToggleOn] = useState(false);
@@ -28,8 +28,12 @@ import React from "react";
 function App() {
     return (
         <>
-			<Toolbar />
-			<Canvas />
+			<header>
+				<Toolbar />
+			</header>
+			<main>
+				<Canvas />
+			</main>
         </>
     );
 }
