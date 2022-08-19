@@ -6,22 +6,22 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 11:52:20 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/19 15:15:07 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import "./Canvas.css";
+import "./Canvas.scss";
 import { fabric } from 'fabric'
 import APIData from '../../Assets/APIData'
 import React, { useEffect, useRef } from 'react'
 
 const Colors = {
-	White: "#ffffff",
-	Red: "#CC6256",
-	Cyan: "#00BABC", // #00A8C1
-	Gray: "#46484C",
-	LightGray: "#6F7278",
-	Orange: "#FFA300",
+	White:		"#ffffff",
+	Red:		"#CC6256",
+	Cyan:		"#00BABC", // #00A8C1
+	Gray:		"#46484C",
+	LightGray:	"#6F7278",
+	Orange:		"#FFA300",
 };
 
 const Canvas = () => {
