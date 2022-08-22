@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 13:38:00 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/22 14:08:31 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,7 @@ import Button from "../../Components/Button/Button";
 import Search from "../../Components/SearchBox/SearchBox";
 import ComboBox from "../../Components/ComboBox/ComboBox";
 import Separator from "../../Components/Separator/Separator";
-import { createContext, useContext, useState } from "react";
-import { NameIDCallbackFunction } from "../../Utilities/Types";
-
-////////////////////////////////////////////////////////////////////////////////
-
-/**
- * The toolbar context which lets you hook onto
- */
-interface ToolbarContextType {
-    onSearchChange: (callback: NameIDCallbackFunction) => void;
-    onCursusChange: (callback: NameIDCallbackFunction) => void;
-    onCampusChange: (callback: NameIDCallbackFunction) => void;
-    onCenterView: (callback: VoidFunction) => void;
-}
-
-const ToolbarContext = createContext<ToolbarContextType>(null!);
+import React from "react";
 
 ////////////////////////////////////////////////////////////////////////////////
 

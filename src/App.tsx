@@ -6,24 +6,34 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/19 16:44:39 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/22 14:10:31 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./App.css";
-import React from "react";
 import Canvas from "./Containers/Canvas/Canvas"
 import Toolbar from "./Containers/Toolbar/Toolbar"
+import { NameIDCallbackFunction, Project } from "./Utilities/Types";
+import { createContext, useContext, useState } from "react";
 
-// const Toggle = () => {
-//     const [isToggleOn, setIsToggleOn] = useState(false);
-//     // var1 setVar1
-//     const handleClick = () => {
-//         setIsToggleOn(() => !isToggleOn);
-//     };
+////////////////////////////////////////////////////////////////////////////////
 
-//     return <button onClick={handleClick}>{isToggleOn ? "ON" : "OFF"}</button>;
-// };
+/**
+ * The toolbar context which lets you hook onto
+ */
+interface AppContextType {
+	// Toolbar hooks
+    onSearchChange: (callback: NameIDCallbackFunction) => void;
+    onCursusChange: (callback: NameIDCallbackFunction) => void;
+    onCampusChange: (callback: NameIDCallbackFunction) => void;
+
+	// Data
+	projects: Project[];
+}
+
+const AppContext = createContext<AppContextType>(null!);
+
+////////////////////////////////////////////////////////////////////////////////
 
 function App() {
     return (
