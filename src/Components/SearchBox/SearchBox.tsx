@@ -6,19 +6,20 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 12:05:01 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/22 13:21:41 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./SearchBox.scss";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, createRef } from "react";
+import { NameIDCallbackFunction } from "../../Utilities/Types";
 
 ////////////////////////////////////////////////////////////////////////////////
 
 export interface Properties {
     id: string
     data: Function;
-    callback: Function;
+    callback: NameIDCallbackFunction;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -26,25 +27,38 @@ export interface Properties {
 /**
  * Component that allows for searching of values with a datalist.
  */
-const SearchBox: React.FC<Properties> = ({id, data, callback})=> {
+const SearchBox: React.FC<Properties> = ({id, data, callback}) => {
 
-	const [inputText, setInputText] = useState('');
+    // TODO: Later when the editor has the project creation feature, we need to expose this.
+    // so that new entries can be added to the datalist.
+    const datalistRef = createRef<HTMLDataListElement>()!;
 
 	function handlecallback(value: string)  {
-		setInputText(value);
-		console.log(value);
+        if (datalistRef.current == undefined)
+            return;
+
+        // Find the project in the list.
+        let datalist = datalistRef.current;
+        for (let i = 0; i < datalist.options.length; i++)
+        {
+            if (datalist.options[i].value === value)
+            {
+                callback(datalist.options[i].value, Number.parseInt(datalist.options[i].label));
+                return;
+            }
+        }
 	}
 
     return (
         <>
-			<datalist id={id}>
+			<datalist id={id} ref={datalistRef}>
                 {data.call(null)}
 			</datalist> 
 
             <input
                 className="search-box"
                 list={id}
-				onChange={(e) => { handlecallback(e.target.value) }}
+				onInput={(e) => { handlecallback(e.currentTarget.value) }}
                 placeholder="Search"
 				autoCorrect="false"
 				spellCheck="false"

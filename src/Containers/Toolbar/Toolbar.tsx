@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 11:33:03 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/22 13:38:00 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,14 @@ import Search from "../../Components/SearchBox/SearchBox";
 import ComboBox from "../../Components/ComboBox/ComboBox";
 import Separator from "../../Components/Separator/Separator";
 import { createContext, useContext, useState } from "react";
+import { NameIDCallbackFunction } from "../../Utilities/Types";
 
 ////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Callback function that returns a name and a given id back.
- * For example: Requesting '42Cursus' which has ID 21.
- */
-interface NameIDCallbackFunction {
-    (name: string, id: number): void;
-}
 
 /**
  * The toolbar context which lets you hook onto
  */
 interface ToolbarContextType {
-    // Canvas modifying callbacks
     onSearchChange: (callback: NameIDCallbackFunction) => void;
     onCursusChange: (callback: NameIDCallbackFunction) => void;
     onCampusChange: (callback: NameIDCallbackFunction) => void;
@@ -54,11 +46,8 @@ const getCursusProjectsElements = () => {
     return Object.entries(APIData).map((entry, index) => {
         const key = entry[1].name;
         const value = entry[1].id;
-        return (
-            <option key={index} value={key}>
-                ID: {value}
-            </option>
-        );
+        
+        return (<option key={index} label={value.toString()} value={key} />);
     });
 };
 
@@ -68,7 +57,12 @@ const getCursusProjectsElements = () => {
  */
 const getRegisteredCursiElements = () => {
     // TODO: Fetch this from the API.
-    return <option value={1}>{"42Cursus"}</option>;
+    return (
+        <>
+        <option value={21}>{"42Cursus"}</option>
+        <option value={19}>{"Piscine C"}</option>
+        </>
+    )
 };
 
 /**
@@ -77,7 +71,13 @@ const getRegisteredCursiElements = () => {
  */
 const getRegisteredCampusesElements = () => {
     // TODO: Fetch this from the API.
-    return <option value={1}>{"Amsterdam"}</option>;
+    return (
+        <>
+        <option value={1}>{"Amsterdam"}</option>
+        <option value={21}>{"Morocco"}</option>
+        <option value={19}>{"Tokyo"}</option>
+        </>
+        );
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -98,24 +98,24 @@ const Toolbar = () => {
                     <Search
                         id="cursi"
                         data={getCursusProjectsElements}
-                        callback={() => {
-                            console.log("Hello!");
+                        callback={(name: string, id: number) => {
+                            console.log("Selected project:", name, "with id", id);
                         }}
                     />
 
                     {/* Cursus selection */}
                     <ComboBox
                         data={getRegisteredCursiElements}
-                        callback={() => {
-                            console.log("Hello!");
+                        callback={(name: string, id: number) => {
+                            console.log("Selected cursus:", name, "with id", id);
                         }}
                     />
 
                     {/* Campus */}
                     <ComboBox
                         data={getRegisteredCampusesElements}
-                        callback={() => {
-                            console.log("Hello!");
+                        callback={(name: string, id: number) => {
+                            console.log("Selected campus:", name, "with id", id);
                         }}
                     />
 

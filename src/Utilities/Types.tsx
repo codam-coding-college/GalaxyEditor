@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   types.tsx                                          :+:    :+:            */
+/*   Types.tsx                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 09:24:34 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/08/22 09:27:16 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/22 12:38:57 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,3 +18,11 @@ export const Colors = {
 	LightGray:	"#6F7278",
 	Orange:		"#FFA300",
 };
+
+/**
+ * Callback function that returns a name and a given id back.
+ * For example: Requesting '42Cursus' which has ID 21.
+ */
+export interface NameIDCallbackFunction {
+    (name: string, id: number): void;
+}
