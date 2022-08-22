@@ -6,24 +6,45 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 11:06:11 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/22 11:33:03 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Assets
 import "./Toolbar.scss";
 import FTLogo from "../../Assets/42_Logo";
+import APIData from "../../Assets/APIData";
 
-import React from "react";
 import Button from "../../Components/Button/Button";
 import Search from "../../Components/SearchBox/SearchBox";
 import ComboBox from "../../Components/ComboBox/ComboBox";
 import Separator from "../../Components/Separator/Separator";
-import APIData from "../../Assets/APIData";
+import { createContext, useContext, useState } from "react";
 
-function print() {
-    console.log("Hello!");
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Callback function that returns a name and a given id back.
+ * For example: Requesting '42Cursus' which has ID 21.
+ */
+interface NameIDCallbackFunction {
+    (name: string, id: number): void;
 }
+
+/**
+ * The toolbar context which lets you hook onto
+ */
+interface ToolbarContextType {
+    // Canvas modifying callbacks
+    onSearchChange: (callback: NameIDCallbackFunction) => void;
+    onCursusChange: (callback: NameIDCallbackFunction) => void;
+    onCampusChange: (callback: NameIDCallbackFunction) => void;
+    onCenterView: (callback: VoidFunction) => void;
+}
+
+const ToolbarContext = createContext<ToolbarContextType>(null!);
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * Fetch all the projects of the current cursus.
@@ -59,6 +80,12 @@ const getRegisteredCampusesElements = () => {
     return <option value={1}>{"Amsterdam"}</option>;
 };
 
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Constructs the toolvar navigation bar.
+ * @returns The toolbar.
+ */
 const Toolbar = () => {
     return (
         <nav>
@@ -68,30 +95,52 @@ const Toolbar = () => {
                     <FTLogo id="logo-toolbar" />
 
                     {/* Project Search */}
-                    <Search id="cursi" data={getCursusProjectsElements} />
+                    <Search
+                        id="cursi"
+                        data={getCursusProjectsElements}
+                        callback={() => {
+                            console.log("Hello!");
+                        }}
+                    />
 
                     {/* Cursus selection */}
-                    <ComboBox data={getRegisteredCursiElements} />
+                    <ComboBox
+                        data={getRegisteredCursiElements}
+                        callback={() => {
+                            console.log("Hello!");
+                        }}
+                    />
 
                     {/* Campus */}
-                    <ComboBox data={getRegisteredCampusesElements} />
+                    <ComboBox
+                        data={getRegisteredCampusesElements}
+                        callback={() => {
+                            console.log("Hello!");
+                        }}
+                    />
 
                     <Separator />
 
                     {/* Options*/}
                     <Button
                         text={"Center view"}
-                        callback={print}
+                        callback={() => {
+                            console.log("Hello!");
+                        }}
                         icon={"fa-solid fa-crop-simple"}
                     />
                     <Button
                         text={"Reset"}
-                        callback={print}
+                        callback={() => {
+                            console.log("Hello!");
+                        }}
                         icon={"fa-solid fa-repeat"}
                     />
                     <Button
                         text={"Export"}
-                        callback={print}
+                        callback={() => {
+                            console.log("Hello!");
+                        }}
                         icon={"fa-solid fa-upload"}
                     />
                 </div>

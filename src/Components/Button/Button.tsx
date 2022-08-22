@@ -6,18 +6,22 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/19 14:33:18 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/22 11:35:33 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./Button.scss";
 import React from "react";
 
+////////////////////////////////////////////////////////////////////////////////
+
 export interface Properties {
     text: string;
-    callback: Function;
     icon: string;
+    callback: Function;
 }
+
+////////////////////////////////////////////////////////////////////////////////
 
 /**
  * A button with a text value, a callback and possibly an icon.

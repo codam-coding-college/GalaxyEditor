@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 11:06:44 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/22 11:36:02 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ import { Colors } from "../../Utilities/Types";
 import React, { useEffect, useRef, useCallback, useState } from 'react'
 import makeLine from "../../Utilities/FabricUtils";
 
+////////////////////////////////////////////////////////////////////////////////
+
 export const UserContext = React.createContext(null);
+
+////////////////////////////////////////////////////////////////////////////////
 
 const Canvas = () => {
 	const canvasEl = useRef(null)
