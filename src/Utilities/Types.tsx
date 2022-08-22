@@ -6,7 +6,7 @@
 /*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 09:24:34 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/08/22 12:38:57 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/22 13:58:05 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,26 @@ export const Colors = {
 	Gray:		"#46484C",
 	LightGray:	"#6F7278",
 	Orange:		"#FFA300",
+};
+
+/**
+ * A Point,
+ */
+export type Point = {
+    x: number;
+    y: number;
+}
+
+/**
+ * A project.
+ */
+export type Project = {
+    id: number;
+    name: string;
+    type: string;
+    x: number;
+    y: number;
+    lines: [{origin: Point, target: Point}]
 };
 
 /**
