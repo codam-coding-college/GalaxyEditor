@@ -6,7 +6,7 @@
 /*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 09:24:34 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/08/22 14:15:32 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/23 09:58:02 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ export const Colors = {
 	Orange:		"#FFA300",
 };
 
-
 /**
- * A Point,
+ * A Point.
  */
 export type Point = {
     x: number;
@@ -29,7 +28,7 @@ export type Point = {
 }
 
 /**
- * The type of project.
+ * The type of project along with its radius.
  */
 export type ProjectKind = {
 	BigProject:		66, // Difficult project.

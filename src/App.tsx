@@ -6,11 +6,11 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 14:10:31 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/23 10:25:11 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import "./App.css";
+import "./App.scss";
 import Canvas from "./Containers/Canvas/Canvas"
 import Toolbar from "./Containers/Toolbar/Toolbar"
 import { NameIDCallbackFunction, Project } from "./Utilities/Types";

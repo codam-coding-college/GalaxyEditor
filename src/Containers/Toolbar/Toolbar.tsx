@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 14:08:31 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/23 10:25:21 by lde-la-h      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ const getCursusProjectsElements = () => {
     return Object.entries(APIData).map((entry, index) => {
         const key = entry[1].name;
         const value = entry[1].id;
-        
-        return (<option key={index} label={value.toString()} value={key} />);
+
+        return <option key={index} label={value.toString()} value={key} />;
     });
 };
 
@@ -44,10 +44,10 @@ const getRegisteredCursiElements = () => {
     // TODO: Fetch this from the API.
     return (
         <>
-        <option value={21}>{"42Cursus"}</option>
-        <option value={19}>{"Piscine C"}</option>
+            <option value={21}>{"42Cursus"}</option>
+            <option value={19}>{"Piscine C"}</option>
         </>
-    )
+    );
 };
 
 /**
@@ -58,11 +58,11 @@ const getRegisteredCampusesElements = () => {
     // TODO: Fetch this from the API.
     return (
         <>
-        <option value={1}>{"Amsterdam"}</option>
-        <option value={21}>{"Morocco"}</option>
-        <option value={19}>{"Tokyo"}</option>
+            <option value={1}>{"Amsterdam"}</option>
+            <option value={21}>{"Morocco"}</option>
+            <option value={19}>{"Tokyo"}</option>
         </>
-        );
+    );
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -84,7 +84,12 @@ const Toolbar = () => {
                         id="cursi"
                         data={getCursusProjectsElements}
                         callback={(name: string, id: number) => {
-                            console.log("Selected project:", name, "with id", id);
+                            console.log(
+                                "Selected project:",
+                                name,
+                                "with id",
+                                id
+                            );
                         }}
                     />
 
@@ -92,7 +97,12 @@ const Toolbar = () => {
                     <ComboBox
                         data={getRegisteredCursiElements}
                         callback={(name: string, id: number) => {
-                            console.log("Selected cursus:", name, "with id", id);
+                            console.log(
+                                "Selected cursus:",
+                                name,
+                                "with id",
+                                id
+                            );
                         }}
                     />
 
@@ -100,7 +110,12 @@ const Toolbar = () => {
                     <ComboBox
                         data={getRegisteredCampusesElements}
                         callback={(name: string, id: number) => {
-                            console.log("Selected campus:", name, "with id", id);
+                            console.log(
+                                "Selected campus:",
+                                name,
+                                "with id",
+                                id
+                            );
                         }}
                     />
 
