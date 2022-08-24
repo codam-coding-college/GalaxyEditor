@@ -6,7 +6,7 @@
 /*   By: W2Wizard <main@w2wizard.dev>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 09:24:34 by W2Wizard      #+#    #+#                 */
-/*   Updated: 2022/08/23 09:58:02 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/24 14:35:13 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,10 @@ export type Project = {
 };
 
 /**
- * Callback function that returns a name and a given id back.
- * For example: Requesting '42Cursus' which has ID 21.
+ * Interface that combines a name / string with a given id / number.
+ * For example: '42Cursus' which has ID 21.
  */
-export interface NameIDCallbackFunction {
-    (name: string, id: number): void;
+export type NameIDCollection = {
+    name: string, 
+	id: number
 }

@@ -6,24 +6,30 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/24 14:22:10 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/24 15:04:01 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./App.scss";
 import Canvas from "./Containers/Canvas/Canvas";
 import Toolbar from "./Containers/Toolbar/Toolbar";
-import { Project } from "./Utilities/Types";
+import { NameIDCollection, Project } from "./Utilities/Types";
 import { createContext, useContext, useState } from "react";
 
 ////////////////////////////////////////////////////////////////////////////////
 // APP Context
 interface AppContextType {
+	// Project data that gets modified during runtime.
 	projects: Project[];
 	setProjects: React.Dispatch<React.SetStateAction<Project[]>>;
 
-	campus: string;
-	setCampus: React.Dispatch<React.SetStateAction<string>>;
+	// Current selected campus (Default: user)
+	campus: NameIDCollection;
+	setCampus: React.Dispatch<React.SetStateAction<NameIDCollection>>;
+
+	// Current selected cursus (Default: user)
+	cursus: NameIDCollection;
+	setCursus: React.Dispatch<React.SetStateAction<NameIDCollection>>;
 }
 
 const AppContext = createContext<AppContextType>(null!);
@@ -35,8 +41,14 @@ const AppContext = createContext<AppContextType>(null!);
  */
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 	// TODO: Set initial state to what was fetched from intra or is in cache.
+
 	const [projectData, setProjectData] = useState<Project[]>(null!);
-	const [selectedCampus, setSelectedCampus] = useState<string>('');
+	const [selectedCampus, setSelectedCampus] = useState<NameIDCollection>(
+		null!
+	);
+	const [selectedCursus, setSelectedCursus] = useState<NameIDCollection>(
+		null!
+	);
 
 	// Construct the object
 	const value: AppContextType = {
@@ -44,14 +56,16 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 		setProjects: setProjectData,
 
 		campus: selectedCampus,
-		setCampus: setSelectedCampus
+		setCampus: setSelectedCampus,
 
+		cursus: selectedCursus,
+		setCursus: setSelectedCursus,
 	};
 
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
 
-// Retrieves the current App data.
+// Alias the simply access to the context.
 export const useAppData = () => {
 	return useContext(AppContext);
 };
@@ -60,7 +74,10 @@ export const useAppData = () => {
 
 function App() {
 	// Credits
-	console.log('%cWritten by W2.Wizard 👨🏼‍💻 (lde-la-h)', 'background-color: #12141a; font-size: 12px; border-radius: 6px; padding: 6px; margin: 6px');
+	console.log(
+		"%cWritten by W2.Wizard 👨🏼‍💻🤙 (lde-la-h)",
+		"background-color: #12141a; font-size: 12px; border-radius: 6px; padding: 6px; margin: 6px"
+	);
 
 	return (
 		<>

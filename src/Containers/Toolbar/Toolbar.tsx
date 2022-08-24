@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/24 13:25:47 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/24 15:00:05 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ import ComboBox from "../../Components/ComboBox/ComboBox";
 import Separator from "../../Components/Separator/Separator";
 import React from "react";
 import { useAppData } from "../../App";
+import { NameIDCollection } from "../../Utilities/Types";
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -73,7 +74,7 @@ const getRegisteredCampusesElements = () => {
  * @returns The toolbar.
  */
 const Toolbar = () => {
-	const {setCampus} = useAppData();
+	const appData = useAppData();
 	
     return (
         <nav>
@@ -86,40 +87,25 @@ const Toolbar = () => {
                     <Search
                         id="cursi"
                         data={getCursusProjectsElements}
-                        callback={(name: string, id: number) => {
-                            console.log(
-                                "Selected project:",
-                                name,
-                                "with id",
-                                id
-                            );
+                        callback={(data: NameIDCollection) => {
+							console.log("Switching to:", data);
                         }}
                     />
 
                     {/* Cursus selection */}
                     <ComboBox
                         data={getRegisteredCursiElements}
-                        callback={(name: string, id: number) => {
-                            console.log(
-                                "Selected cursus:",
-                                name,
-                                "with id",
-                                id
-                            );
+                        callback={(data: NameIDCollection) => {
+							console.log("Switching to:", data);
                         }}
                     />
 
                     {/* Campus */}
                     <ComboBox
                         data={getRegisteredCampusesElements}
-                        callback={(name: string, id: number) => {
-							setCampus(name);
-                            console.log(
-                                "Selected campus:",
-                                name,
-                                "with id",
-                                id
-                            );
+                        callback={(data: NameIDCollection) => {
+							console.log("Switching to:", data);
+							appData.setCampus(data);
                         }}
                     />
 
