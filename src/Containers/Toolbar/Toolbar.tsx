@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/23 10:25:21 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/24 13:25:47 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ import Search from "../../Components/SearchBox/SearchBox";
 import ComboBox from "../../Components/ComboBox/ComboBox";
 import Separator from "../../Components/Separator/Separator";
 import React from "react";
+import { useAppData } from "../../App";
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -72,6 +73,8 @@ const getRegisteredCampusesElements = () => {
  * @returns The toolbar.
  */
 const Toolbar = () => {
+	const {setCampus} = useAppData();
+	
     return (
         <nav>
             <div id="editor-toolbar">
@@ -110,6 +113,7 @@ const Toolbar = () => {
                     <ComboBox
                         data={getRegisteredCampusesElements}
                         callback={(name: string, id: number) => {
+							setCampus(name);
                             console.log(
                                 "Selected campus:",
                                 name,
