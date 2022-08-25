@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 15:39:48 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 22:43:31 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ const CampusSelect: React.FC<Properties> = ({ callback }) => {
 	// Update the cursi once from user data
 	useEffect(() => {
 		setOptions(fetchCampuses(appData));
-	}, [])
+	}, []);
 
 	const handlecallback = (
 		collection: HTMLCollectionOf<HTMLOptionElement>

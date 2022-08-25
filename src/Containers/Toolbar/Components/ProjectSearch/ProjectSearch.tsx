@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 16:34:44 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 22:43:51 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ const fetchProjects = (appData: AppContextType) => {
 		const key = entry[1].name;
 		const value = entry[1].id;
 
-		return <option key={index} label={value.toString()} value={key} />;
+		return <option key={index} value={key}>{value}</option>
 	});
 };
 
