@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/24 14:44:10 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 13:20:24 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ export interface Properties {
  * Element with possible values for selection.
  */
 const ComboBox: React.FC<Properties> = ({ data, callback }) => {
-	const handlecallback = (collection: HTMLCollectionOf<HTMLOptionElement>) => {
+	const handlecallback = (
+		collection: HTMLCollectionOf<HTMLOptionElement>
+	) => {
 		for (let i = 0; i < collection.length; i++) {
 			const element = collection[i];
 			if (element.selected) {
@@ -37,7 +39,7 @@ const ComboBox: React.FC<Properties> = ({ data, callback }) => {
 				});
 			}
 		}
-	}
+	};
 
 	return (
 		<>

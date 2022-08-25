@@ -6,13 +6,13 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 10:42:27 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 13:20:28 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 .combo-box {
 	display: inline-block;
-	
+
 	margin: 4px;
 	padding: 0.4rem;
 
@@ -20,8 +20,8 @@
 
 	color: var(--foreground-unfocused);
 
-	transition: all .1s ease-out;
-	
+	transition: all 0.1s ease-out;
+
 	border: solid rgba(255, 255, 255, 0.1) 0.15rem;
 	background: var(--component-background);
 	cursor: pointer;

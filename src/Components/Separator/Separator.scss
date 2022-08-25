@@ -6,18 +6,18 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/07/25 15:49:50 by lde-la-h      ########   odam.nl         */
+/*   Updated: 2022/08/25 13:19:57 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 .separator {
 	display: block;
-	
+
 	border-radius: 8px;
 	margin: 4px 2px 4px 2px;
 
-    width: 4px;
+	width: 4px;
 	height: auto;
-    
+
 	background-color: var(--component-background);
 }

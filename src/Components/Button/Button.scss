@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/22 11:05:46 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 13:20:33 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 	text-decoration: none;
 	border-style: solid;
 	border-width: 2.5px;
-	
+
 	cursor: pointer;
 	display: inline-block;
-	
+
 	margin: 4px;
 	padding: 0.4rem;
 	border-radius: 4px;
@@ -28,7 +28,7 @@
 	border: solid var(--component-border-color) 0.15rem;
 	color: var(--foreground-unfocused);
 
-	transition: all .1s ease-out;
+	transition: all 0.1s ease-out;
 
 	&:hover {
 		color: var(--foreground);
