@@ -6,12 +6,12 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 15:34:40 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 21:31:59 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./CursusSelect.scss";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { NameIDCollection } from "../../../../Utilities/Types";
 import { AppContextType, useAppData } from "../../../../App";
 
@@ -29,10 +29,10 @@ const fetchCursi = (appData: AppContextType) => {
 	console.log("Updating cursus selection");
 	return (
 		<>
-			<option value={1}>{"42"}</option>
-			<option value={21}>{"42Cursus"}</option>
-			<option value={69}>{"42.Zip"}</option>
-			<option value={19}>{"Piscine C"}</option>
+			<option value={1}>{Math.random()}</option>
+			<option value={21}>{Math.random()}</option>
+			<option value={69}>{Math.random()}</option>
+			<option value={19}>{Math.random()}</option>
 		</>
 	);
 };
@@ -42,10 +42,15 @@ const fetchCursi = (appData: AppContextType) => {
  */
 const CursusSelect: React.FC<Properties> = ({ callback }) => {
 	const appData = useAppData();
+	const select = useRef<HTMLSelectElement>(null!);
 	const [options, setOptions] = useState<any>(null);
 
 	// Update the cursi if the campuses changes.
 	useEffect(() => {
+		
+		// Reset to the first available option.
+		select.current.selectedIndex = 0;
+
 		setOptions(fetchCursi(appData));
 	}, [appData.currentCampus]);
 
@@ -67,6 +72,7 @@ const CursusSelect: React.FC<Properties> = ({ callback }) => {
 		<>
 			<select
 				className="cursus-select"
+				ref={select}
 				onChange={(e) => {
 					handlecallback(e.currentTarget.selectedOptions);
 				}}

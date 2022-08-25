@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 17:48:20 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 21:14:56 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@
 	outline: none;
 	&:focus {
 		border-color: var(--foreground);
+	}
+
+	&:active {
+		border-color: var(--component-border-color);
 	}
 
 	&:hover {
