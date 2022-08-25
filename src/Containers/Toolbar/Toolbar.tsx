@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 10:04:11 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 12:44:55 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ import { NameIDCollection } from "../../Utilities/Types";
  * @returns JSX.Element[] - Array of options with all the projects and their ID's.
  */
 const getCursusProjectsElements = () => {
-    return Object.entries(APIData).map((entry, index) => {
-        const key = entry[1].name;
-        const value = entry[1].id;
+	return Object.entries(APIData).map((entry, index) => {
+		const key = entry[1].name;
+		const value = entry[1].id;
 
-        return <option key={index} label={value.toString()} value={key} />;
-    });
+		return <option key={index} label={value.toString()} value={key} />;
+	});
 };
 
 /**
@@ -43,13 +43,13 @@ const getCursusProjectsElements = () => {
  * @returns JSX.Element[] - Array of options with all current registered cursi.
  */
 const getRegisteredCursiElements = () => {
-    // TODO: Fetch this from the API.
-    return (
-        <>
-            <option value={21}>{"42Cursus"}</option>
-            <option value={19}>{"Piscine C"}</option>
-        </>
-    );
+	// TODO: Fetch this from the API.
+	return (
+		<>
+			<option value={21}>{"42Cursus"}</option>
+			<option value={19}>{"Piscine C"}</option>
+		</>
+	);
 };
 
 /**
@@ -57,17 +57,22 @@ const getRegisteredCursiElements = () => {
  * @returns JSX.Element[] - Array of options with all current registered campuses.
  */
 const getRegisteredCampusesElements = () => {
-    // TODO: Fetch this from the API.
-    return (
-        <>
-            <option value={1}>{"Amsterdam"}</option>
-            <option value={21}>{"Morocco"}</option>
-            <option value={19}>{"Tokyo"}</option>
-        </>
-    );
+	// TODO: Fetch this from the API.
+	return (
+		<>
+			<option value={1}>{"Amsterdam"}</option>
+			<option value={21}>{"Morocco"}</option>
+			<option value={19}>{"Tokyo"}</option>
+		</>
+	);
 };
 
 ////////////////////////////////////////////////////////////////////////////////
+
+// NOTE: Campus->Cursus->Project
+// Campus defines the cursi which in turn defines what projects are available.
+// We need to make sure everything updates accordingly and is set correctly when
+// we change the comboboxes
 
 /**
  * Constructs the toolvar navigation bar.
@@ -75,70 +80,79 @@ const getRegisteredCampusesElements = () => {
  */
 const Toolbar = () => {
 	const appData = useAppData();
-	
-    return (
-        <nav>
-            <div id="editor-toolbar">
-                {/* Toolbar stack */}
-                <div className="stack">
-                    <FTLogo id="logo-toolbar" />
 
-                    {/* Project Search */}
-                    <Search
-                        id="cursi"
-                        data={getCursusProjectsElements}
-                        callback={(data: NameIDCollection) => {
+	return (
+		<nav>
+			<div id="editor-toolbar">
+				{/* Toolbar stack */}
+				<div className="stack">
+					<FTLogo id="logo-toolbar" />
+
+					{/* Project Search */}
+					{/* TODO: Update when cursus or campus changes */}
+					<Search
+						id="cursi"
+						data={getCursusProjectsElements}
+						callback={(data: NameIDCollection) => {
 							console.log("Searching for:", data);
-							appData.setfocusProject(data);
-                        }}
-                    />
+							appData.updateFocusProject(data);
+						}}
+					/>
 
-                    {/* Cursus selection */}
-                    <ComboBox
-                        data={getRegisteredCursiElements}
-                        callback={(data: NameIDCollection) => {
-							console.log("Switching cursus to:", data);
-							appData.setCursus(data);
-                        }}
-                    />
-
-                    {/* Campus */}
-                    <ComboBox
-                        data={getRegisteredCampusesElements}
-                        callback={(data: NameIDCollection) => {
+					{/* Campus */}
+					{/* NOTE: Data only ever initalized on startup from user data*/}
+					<ComboBox
+						data={getRegisteredCampusesElements}
+						callback={(data: NameIDCollection) => {
 							console.log("Switching campus to:", data);
-							appData.setCampus(data);
-                        }}
-                    />
+							appData.updateCurrentCampus(data);
+							
+							// TODO: Fetch default cursus from API instead!
+							console.log("Fetching default cursus");
+							appData.updateCurrentCursus(appData.currentCursus);
+							appData.updateFocusProject(null!);
+						}}
+					/>
 
-                    <Separator />
+					{/* Cursus selection */}
+					{/* TODO: Update when campus changes */}
+					<ComboBox
+						data={getRegisteredCursiElements}
+						callback={(data: NameIDCollection) => {
+							console.log("Switching cursus to:", data);
+							appData.updateCurrentCursus(data);
+							appData.updateFocusProject(null!);
+						}}
+					/>
 
-                    {/* Options*/}
-                    <Button
-                        text={"Center view"}
-                        callback={() => {
-                            console.log("Hello!");
-                        }}
-                        icon={"fa-solid fa-crop-simple"}
-                    />
-                    <Button
-                        text={"Reset"}
-                        callback={() => {
-                            console.log("Hello!");
-                        }}
-                        icon={"fa-solid fa-repeat"}
-                    />
-                    <Button
-                        text={"Export"}
-                        callback={() => {
-                            console.log("Hello!");
-                        }}
-                        icon={"fa-solid fa-upload"}
-                    />
-                </div>
-            </div>
-        </nav>
-    );
+					<Separator />
+
+					{/* Options*/}
+					<Button
+						text={"Center view"}
+						callback={() => {
+							console.log("Hello!");
+						}}
+						icon={"fa-solid fa-crop-simple"}
+					/>
+					<Button
+						text={"Reset"}
+						callback={() => {
+							console.log("Hello!");
+						}}
+						icon={"fa-solid fa-repeat"}
+					/>
+					<Button
+						text={"Export"}
+						callback={() => {
+							console.log("Hello!");
+						}}
+						icon={"fa-solid fa-upload"}
+					/>
+				</div>
+			</div>
+		</nav>
+	);
 };
 
 export default Toolbar;

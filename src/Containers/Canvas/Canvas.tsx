@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 10:12:06 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 12:10:59 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ export const UserContext = React.createContext(null);
 const Canvas = () => {
 	const canvasEl = useRef<HTMLCanvasElement>(null);
 
-	const { campus, cursus, focusProject } = useAppData();
+	const {currentCampus, currentCursus, focusProject} = useAppData();
 
 	useEffect(() => {
 		console.log("New Canvas ...")
@@ -73,12 +73,13 @@ const Canvas = () => {
 
 	// Update canvas content
 	useEffect(() => {
-		console.log("UPDATE RENDER: ", campus, cursus);
-	}, [campus, cursus]);
+		console.log("UPDATE");
+		console.log(currentCampus, currentCursus);
+	}, [currentCursus, currentCampus]);
 
 	// Zoom onto searched object
 	useEffect(() => {
-		console.log("Focus on project:", focusProject);
+		console.log("FOCUS:", focusProject);
 	}, [focusProject]);
 
 	return <canvas id="galaxy-graph" ref={canvasEl} />;
