@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 14:04:01 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 15:50:23 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
 	border: solid rgba(255, 255, 255, 0.1) 0.15rem;
 	background: var(--component-background);
 	cursor: pointer;
+
+	outline: 0;
+	&:focus {
+		border-color: var(--foreground);
+	}
 
 	&:hover {
 		color: var(--foreground);

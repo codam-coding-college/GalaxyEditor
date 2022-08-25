@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 14:03:20 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 16:11:36 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,38 +39,9 @@ const getCursusProjectsElements = () => {
 	});
 };
 
-/**
- * Fetch all current accessible cursi of the current user.
- * @returns JSX.Element[] - Array of options with all current registered cursi.
- */
-const getRegisteredCursiElements = () => {
-	// TODO: Fetch this from the API.
-	return (
-		<>
-			<option value={21}>{"42Cursus"}</option>
-			<option value={19}>{"Piscine C"}</option>
-		</>
-	);
-};
-
-/**
- * Fetch all current accessible campuses of the current user.
- * @returns JSX.Element[] - Array of options with all current registered campuses.
- */
-const getRegisteredCampusesElements = () => {
-	// TODO: Fetch this from the API.
-	return (
-		<>
-			<option value={1}>{"Amsterdam"}</option>
-			<option value={21}>{"Morocco"}</option>
-			<option value={19}>{"Tokyo"}</option>
-		</>
-	);
-};
-
 ////////////////////////////////////////////////////////////////////////////////
 
-// NOTE: Campus->Cursus->Project
+// NOTE (W2): Campus->Cursus->Project
 // Campus defines the cursi which in turn defines what projects are available.
 // We need to make sure everything updates accordingly and is set correctly when
 // we change the comboboxes
@@ -102,24 +73,18 @@ const Toolbar = () => {
 					/>
 
 					{/* Campus */}
-					{/* NOTE: Data only ever initalized on startup from user data*/}
+					{/* NOTE (W2): Data only ever initalized on startup from user data*/}
 					<CampusSelect
-						data={getRegisteredCampusesElements}
 						callback={(data: NameIDCollection) => {
 							console.log("Switching campus to:", data);
 							appData.updateCurrentCampus(data);
-							
-							// TODO: Fetch default cursus from API instead!
-							console.log("Fetching default cursus");
-							appData.updateCurrentCursus(appData.currentCursus);
 							appData.updateFocusProject(null!);
 						}}
 					/>
 
 					{/* Cursus selection */}
-					{/* TODO: Update when campus changes */}
+					{/* NOTE (W2): Update when campus changes */}
 					<CursusSelect
-						data={getRegisteredCursiElements}
 						callback={(data: NameIDCollection) => {
 							console.log("Switching cursus to:", data);
 							appData.updateCurrentCursus(data);

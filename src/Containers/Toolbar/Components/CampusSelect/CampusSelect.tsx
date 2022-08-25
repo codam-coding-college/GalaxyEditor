@@ -6,27 +6,48 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 14:04:24 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 15:39:48 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./CampusSelect.scss";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NameIDCollection } from "../../../../Utilities/Types";
+import { AppContextType, useAppData } from "../../../../App";
 
 ////////////////////////////////////////////////////////////////////////////////
 
 export interface Properties {
-	data: Function;
 	callback: (data: NameIDCollection) => void;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
+const fetchCampuses = (appData: AppContextType) => {
+	// TODO: Fetch this from the API or cache.
+
+	console.log("Updating user campuses");
+	return (
+		<>
+			<option value={1}>{"Amsterdam"}</option>
+			<option value={21}>{"Morocco"}</option>
+			<option value={19}>{"Tokyo"}</option>
+		</>
+	);
+};
+
 /**
  * Element with possible values for selection.
  */
-const CampusSelect: React.FC<Properties> = ({ data, callback }) => {
+const CampusSelect: React.FC<Properties> = ({ callback }) => {
+	const appData = useAppData();
+	const [options, setOptions] = useState<any>(null);
+
+	// Update the cursi once from user data
+	useEffect(() => {
+		setOptions(fetchCampuses(appData));
+	}, [])
+
 	const handlecallback = (
 		collection: HTMLCollectionOf<HTMLOptionElement>
 	) => {
@@ -49,7 +70,7 @@ const CampusSelect: React.FC<Properties> = ({ data, callback }) => {
 					handlecallback(e.currentTarget.selectedOptions);
 				}}
 			>
-				{data.call(null)}
+				{options}
 			</select>
 		</>
 	);

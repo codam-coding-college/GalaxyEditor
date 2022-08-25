@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 13:22:02 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 14:36:56 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ import { createContext, useContext, useState } from "react";
 /**
  * App global context interface, used to transport data between toolbar and canvas back and forward.
  */
-interface AppContextType {
+export interface AppContextType {
 	/** Array of all the projects of the given cursus. */
 	projects: Project[];
 	updateProjects: React.Dispatch<React.SetStateAction<Project[]>>;
