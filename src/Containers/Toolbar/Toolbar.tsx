@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 12:44:55 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 14:03:20 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ import FTLogo from "../../Assets/42_Logo";
 import APIData from "../../Assets/APIData";
 
 import Button from "../../Components/Button/Button";
-import Search from "../../Components/SearchBox/SearchBox";
-import ComboBox from "../../Components/ComboBox/ComboBox";
+import CampusSelect from "./Components/CampusSelect/CampusSelect";
+import CursusSelect from "./Components/CursusSelect/CursusSelect";
+import ProjectSearch from "./Components/ProjectSearch/ProjectSearch";
 import Separator from "../../Components/Separator/Separator";
 import React from "react";
 import { useAppData } from "../../App";
@@ -90,7 +91,8 @@ const Toolbar = () => {
 
 					{/* Project Search */}
 					{/* TODO: Update when cursus or campus changes */}
-					<Search
+
+					<ProjectSearch
 						id="cursi"
 						data={getCursusProjectsElements}
 						callback={(data: NameIDCollection) => {
@@ -101,7 +103,7 @@ const Toolbar = () => {
 
 					{/* Campus */}
 					{/* NOTE: Data only ever initalized on startup from user data*/}
-					<ComboBox
+					<CampusSelect
 						data={getRegisteredCampusesElements}
 						callback={(data: NameIDCollection) => {
 							console.log("Switching campus to:", data);
@@ -116,7 +118,7 @@ const Toolbar = () => {
 
 					{/* Cursus selection */}
 					{/* TODO: Update when campus changes */}
-					<ComboBox
+					<CursusSelect
 						data={getRegisteredCursiElements}
 						callback={(data: NameIDCollection) => {
 							console.log("Switching cursus to:", data);

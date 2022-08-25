@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ComboBox.scss                                      :+:    :+:            */
+/*   ProjectSearch.scss                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 13:20:28 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 14:04:08 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-.combo-box {
+.project-search {
 	display: inline-block;
 
 	margin: 4px;
@@ -18,15 +18,23 @@
 
 	border-radius: 4px;
 
-	color: var(--foreground-unfocused);
-
-	transition: all 0.1s ease-out;
-
 	border: solid rgba(255, 255, 255, 0.1) 0.15rem;
 	background: var(--component-background);
+
+	transition: all 0.1s ease-out;
 	cursor: pointer;
 
+	color: var(--foreground-unfocused);
+
 	&:hover {
+		color: var(--foreground);
+	}
+
+	&:hover::placeholder {
+		color: var(--foreground-unfocused);
+	}
+
+	&:hover::placeholder {
 		color: var(--foreground);
 	}
 }

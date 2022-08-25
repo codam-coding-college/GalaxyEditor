@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ComboBox.tsx                                       :+:    :+:            */
+/*   CursusSelect.tsx                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 13:20:24 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 14:01:43 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import "./ComboBox.scss";
+import "./CursusSelect.scss";
 import React from "react";
-import { NameIDCollection } from "../../Utilities/Types";
+import { NameIDCollection } from "../../../../Utilities/Types";
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -26,7 +26,7 @@ export interface Properties {
 /**
  * Element with possible values for selection.
  */
-const ComboBox: React.FC<Properties> = ({ data, callback }) => {
+const CursusSelect: React.FC<Properties> = ({ data, callback }) => {
 	const handlecallback = (
 		collection: HTMLCollectionOf<HTMLOptionElement>
 	) => {
@@ -44,7 +44,7 @@ const ComboBox: React.FC<Properties> = ({ data, callback }) => {
 	return (
 		<>
 			<select
-				className="combo-box"
+				className="cursus-select"
 				onChange={(e) => {
 					handlecallback(e.currentTarget.selectedOptions);
 				}}
@@ -55,4 +55,4 @@ const ComboBox: React.FC<Properties> = ({ data, callback }) => {
 	);
 };
 
-export default ComboBox;
+export default CursusSelect;

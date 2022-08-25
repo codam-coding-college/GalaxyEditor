@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   SearchBox.tsx                                      :+:    :+:            */
+/*   ProjectSearch.tsx                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 09:08:04 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 14:01:28 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import "./SearchBox.scss";
-import React, { createRef } from "react";
-import { NameIDCollection } from "../../Utilities/Types";
+import "./ProjectSearch.scss";
+import React, { createRef, useEffect } from "react";
+import { NameIDCollection } from "../../../../Utilities/Types";
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -27,16 +27,15 @@ export interface Properties {
 /**
  * Component that allows for searching of values with a datalist.
  */
-const SearchBox: React.FC<Properties> = ({ id, data, callback }) => {
-	// TODO: Later when the editor has the project creation feature, we need to expose this.
-	// so that new entries can be added to the datalist.
+const ProjectSearch: React.FC<Properties> = ({ id, data, callback }) => {
+
 	const datalistRef = createRef<HTMLDataListElement>()!;
 
-	const handlecallback = (value: string) => {
+	const callbackHandle = (value: string) => {
 		if (datalistRef.current == undefined) return;
 
 		// Find the project in the list.
-		let datalist = datalistRef.current;
+		const datalist = datalistRef.current;
 		for (let i = 0; i < datalist.options.length; i++) {
 			if (datalist.options[i].value === value) {
 				return callback({
@@ -54,10 +53,10 @@ const SearchBox: React.FC<Properties> = ({ id, data, callback }) => {
 			</datalist>
 
 			<input
-				className="search-box"
+				className="project-search"
 				list={id}
 				onInput={(e) => {
-					handlecallback(e.currentTarget.value);
+					callbackHandle(e.currentTarget.value);
 				}}
 				placeholder="Search"
 				autoCorrect="false"
@@ -67,4 +66,4 @@ const SearchBox: React.FC<Properties> = ({ id, data, callback }) => {
 	);
 };
 
-export default SearchBox;
+export default ProjectSearch;

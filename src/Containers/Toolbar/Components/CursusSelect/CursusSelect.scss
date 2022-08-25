@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   index.tsx                                          :+:    :+:            */
+/*   CursusSelect.scss                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/25 10:50:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 13:22:26 by W2Wizard      ########   odam.nl         */
+/*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
+/*   Updated: 2022/08/25 14:00:01 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-import App from './App';
-import ReactDOM from 'react-dom/client';
+.cursus-select {
+	display: inline-block;
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+	margin: 4px;
+	padding: 0.4rem;
 
-root.render(<App />);
+	border-radius: 4px;
+
+	color: var(--foreground-unfocused);
+
+	transition: all 0.1s ease-out;
+
+	border: solid rgba(255, 255, 255, 0.1) 0.15rem;
+	background: var(--component-background);
+	cursor: pointer;
+
+	&:hover {
+		color: var(--foreground);
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 11:42:21 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 13:22:02 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ const AppContext = createContext<AppContextType>(null!);
  * @returns The App context provider.
  */
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
-	const [focusProject, setFocusProject] = useState<NameIDCollection>(null!);
 	const [projects, setProjects] = useState<Project[]>(null!);
 	const [cursus, setCursus] = useState<NameIDCollection>(null!);
 	const [campus, setCampus] = useState<NameIDCollection>(null!);
+	const [focusProject, setFocusProject] = useState<NameIDCollection>(null!);
 
 	// Construct the object
 	const value: AppContextType = {
