@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:40:29 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 15:41:47 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 17:48:43 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,17 @@
 	padding: 0.4rem;
 
 	border-radius: 4px;
+	user-select: none;
 
 	color: var(--foreground-unfocused);
 
-	transition: all 0.1s ease-out;
+	transition: all var(--transition-speed) ease-out;
 
 	border: solid rgba(255, 255, 255, 0.1) 0.15rem;
 	background: var(--component-background);
 	cursor: pointer;
 
-	outline: 0;
+	outline: none;
 	&:focus {
 		border-color: var(--foreground);
 	}

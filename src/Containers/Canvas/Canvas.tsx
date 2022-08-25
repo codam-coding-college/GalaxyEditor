@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 12:10:59 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 16:56:15 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ const Canvas = () => {
 	const {currentCampus, currentCursus, focusProject} = useAppData();
 
 	useEffect(() => {
-		console.log("New Canvas ...")
 		const canvas = new fabric.Canvas(canvasEl.current, {
 			selection: false,
 		});
@@ -73,13 +72,10 @@ const Canvas = () => {
 
 	// Update canvas content
 	useEffect(() => {
-		console.log("UPDATE");
-		console.log(currentCampus, currentCursus);
 	}, [currentCursus, currentCampus]);
 
 	// Zoom onto searched object
 	useEffect(() => {
-		console.log("FOCUS:", focusProject);
 	}, [focusProject]);
 
 	return <canvas id="galaxy-graph" ref={canvasEl} />;
