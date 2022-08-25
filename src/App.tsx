@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/24 15:04:01 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 09:42:50 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ interface AppContextType {
 	// Current selected cursus (Default: user)
 	cursus: NameIDCollection;
 	setCursus: React.Dispatch<React.SetStateAction<NameIDCollection>>;
+
+	focusProject: NameIDCollection;
+	setfocusProject: React.Dispatch<React.SetStateAction<NameIDCollection>>;
 }
 
 const AppContext = createContext<AppContextType>(null!);
@@ -43,12 +46,9 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 	// TODO: Set initial state to what was fetched from intra or is in cache.
 
 	const [projectData, setProjectData] = useState<Project[]>(null!);
-	const [selectedCampus, setSelectedCampus] = useState<NameIDCollection>(
-		null!
-	);
-	const [selectedCursus, setSelectedCursus] = useState<NameIDCollection>(
-		null!
-	);
+	const [selectedCampus, setSelectedCampus] = useState<NameIDCollection>(null!);
+	const [selectedCursus, setSelectedCursus] = useState<NameIDCollection>(null!);
+	const [focusedProject, setfocusedProject] = useState<NameIDCollection>(null!);
 
 	// Construct the object
 	const value: AppContextType = {
@@ -60,6 +60,9 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 
 		cursus: selectedCursus,
 		setCursus: setSelectedCursus,
+
+		focusProject: focusedProject,
+		setfocusProject: setfocusedProject,
 	};
 
 	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

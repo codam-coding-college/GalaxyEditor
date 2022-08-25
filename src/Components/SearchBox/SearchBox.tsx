@@ -6,12 +6,12 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/24 14:42:43 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 09:08:04 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 import "./SearchBox.scss";
-import React, { useState, useRef, createRef } from "react";
+import React, { createRef } from "react";
 import { NameIDCollection } from "../../Utilities/Types";
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/24 15:00:05 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 10:04:11 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ const Toolbar = () => {
                         id="cursi"
                         data={getCursusProjectsElements}
                         callback={(data: NameIDCollection) => {
-							console.log("Switching to:", data);
+							console.log("Searching for:", data);
+							appData.setfocusProject(data);
                         }}
                     />
 
@@ -96,7 +97,8 @@ const Toolbar = () => {
                     <ComboBox
                         data={getRegisteredCursiElements}
                         callback={(data: NameIDCollection) => {
-							console.log("Switching to:", data);
+							console.log("Switching cursus to:", data);
+							appData.setCursus(data);
                         }}
                     />
 
@@ -104,7 +106,7 @@ const Toolbar = () => {
                     <ComboBox
                         data={getRegisteredCampusesElements}
                         callback={(data: NameIDCollection) => {
-							console.log("Switching to:", data);
+							console.log("Switching campus to:", data);
 							appData.setCampus(data);
                         }}
                     />
