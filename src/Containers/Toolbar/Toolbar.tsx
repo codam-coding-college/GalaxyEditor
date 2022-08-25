@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:38:25 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 16:11:36 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/25 16:35:16 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,6 @@ import Separator from "../../Components/Separator/Separator";
 import React from "react";
 import { useAppData } from "../../App";
 import { NameIDCollection } from "../../Utilities/Types";
-
-////////////////////////////////////////////////////////////////////////////////
-
-/**
- * Fetch all the projects of the current cursus.
- * @returns JSX.Element[] - Array of options with all the projects and their ID's.
- */
-const getCursusProjectsElements = () => {
-	return Object.entries(APIData).map((entry, index) => {
-		const key = entry[1].name;
-		const value = entry[1].id;
-
-		return <option key={index} label={value.toString()} value={key} />;
-	});
-};
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -61,11 +46,8 @@ const Toolbar = () => {
 					<FTLogo id="logo-toolbar" />
 
 					{/* Project Search */}
-					{/* TODO: Update when cursus or campus changes */}
-
+					{/* NOTE (W2): Update when cursus or campus changes */}
 					<ProjectSearch
-						id="cursi"
-						data={getCursusProjectsElements}
 						callback={(data: NameIDCollection) => {
 							console.log("Searching for:", data);
 							appData.updateFocusProject(data);
