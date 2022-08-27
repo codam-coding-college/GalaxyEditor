@@ -10,17 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// Assets
 import "./Toolbar.scss";
+import React from "react";
 import FTLogo from "../../Assets/42_Logo";
-import APIData from "../../Assets/APIData";
-
 import Button from "../../Components/Button/Button";
 import CampusSelect from "./Components/CampusSelect/CampusSelect";
 import CursusSelect from "./Components/CursusSelect/CursusSelect";
 import ProjectSearch from "./Components/ProjectSearch/ProjectSearch";
 import Separator from "../../Components/Separator/Separator";
-import React from "react";
 import { useAppData } from "../../App";
 import { NameIDCollection } from "../../Utilities/Types";
 
@@ -45,15 +42,6 @@ const Toolbar = () => {
 				<div className="stack">
 					<FTLogo id="logo-toolbar" />
 
-					{/* Project Search */}
-					{/* NOTE (W2): Update when cursus or campus changes */}
-					<ProjectSearch
-						callback={(data: NameIDCollection) => {
-							console.log("Searching for:", data);
-							appData.updateFocusProject(data);
-						}}
-					/>
-
 					{/* Campus */}
 					{/* NOTE (W2): Data only ever initalized on startup from user data*/}
 					<CampusSelect
@@ -71,6 +59,15 @@ const Toolbar = () => {
 							console.log("Switching cursus to:", data);
 							appData.updateCurrentCursus(data);
 							appData.updateFocusProject(null!);
+						}}
+					/>
+
+					{/* Project Search */}
+					{/* NOTE (W2): Update when cursus or campus changes */}
+					<ProjectSearch
+						callback={(data: NameIDCollection) => {
+							console.log("Searching for:", data);
+							appData.updateFocusProject(data);
 						}}
 					/>
 

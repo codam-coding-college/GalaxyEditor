@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@codam/fast42": "^1.2.7",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,7 +13,6 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "fabric": "^5.2.1",
-    "fast42": "github:codam-coding-college/fast42",
     "node-fetch": "^3.2.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

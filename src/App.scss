@@ -16,20 +16,21 @@
 	--component-background: #1d2028;
 	--component-border-color: rgba(255, 255, 255, 0.1);
 
-	--header-background: #292D39;
-    --header-background-shadow: #24242e;
+	--header-background: #292d39;
+	--header-background-shadow: #24242e;
 
 	--foreground: #ecf0f1;
-    --foreground-unfocused: #a0a0a0;
+	--foreground-unfocused: #a0a0a0;
 
-	--transition-speed: 0.2s
+	--transition-speed: 0.2s;
 }
 
 body {
 	overflow: hidden;
 	background: var(--background);
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
 }
 
 header {
@@ -41,4 +42,3 @@ header {
 	flex-wrap: wrap;
 	overflow: hidden;
 }
-

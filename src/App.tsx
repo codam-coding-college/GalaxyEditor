@@ -11,10 +11,12 @@
 /* ************************************************************************** */
 
 import "./App.scss";
+import Unavailable from "./Unavailable";
 import Canvas from "./Containers/Canvas/Canvas";
 import Toolbar from "./Containers/Toolbar/Toolbar";
 import { NameIDCollection, Project } from "./Utilities/Types";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import Api42 from "@codam/fast42";
 
 ////////////////////////////////////////////////////////////////////////////////
 // APP Context
@@ -23,6 +25,10 @@ import { createContext, useContext, useState } from "react";
  * App global context interface, used to transport data between toolbar and canvas back and forward.
  */
 export interface AppContextType {
+	/** API interface */
+	api: Api42;
+	updateAPI: React.Dispatch<React.SetStateAction<Api42>>;
+
 	/** Array of all the projects of the given cursus. */
 	projects: Project[];
 	updateProjects: React.Dispatch<React.SetStateAction<Project[]>>;
@@ -38,8 +44,6 @@ export interface AppContextType {
 	/** Currently selected Campus */
 	currentCampus: NameIDCollection;
 	updateCurrentCampus: React.Dispatch<React.SetStateAction<NameIDCollection>>;
-
-	// TODO: Add user OAuth stuff here so we can access the token.
 }
 
 const AppContext = createContext<AppContextType>(null!);
@@ -52,6 +56,7 @@ const AppContext = createContext<AppContextType>(null!);
  * @returns The App context provider.
  */
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
+	const [api, setAPI] = useState<Api42>(null!);
 	const [projects, setProjects] = useState<Project[]>(null!);
 	const [cursus, setCursus] = useState<NameIDCollection>(null!);
 	const [campus, setCampus] = useState<NameIDCollection>(null!);
@@ -59,6 +64,9 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 
 	// Construct the object
 	const value: AppContextType = {
+		api: api,
+		updateAPI: setAPI,
+
 		focusProject: focusProject,
 		updateFocusProject: setFocusProject,
 
@@ -81,32 +89,39 @@ export const useAppData = () => {
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-
-function App() {
-	// Credits
-	console.log(
-		"%cWritten by W2.Wizard 👨🏼‍💻🤙 (lde-la-h)",
-		"background-color: #12141a; font-size: 12px; border-radius: 6px; padding: 6px; margin: 6px"
+const App = () => {
+	return (
+		<AppDataProvider>
+			<RenderMainContent />
+		</AppDataProvider>
 	);
+};
 
-	//const fuck = useAppData();
-	//fuck.campuses.update((prevState) => {
-	//	// DO STUFF
-	//	return prevState;
-	//})
+const RenderMainContent = () => {
+	const [apiFailed, setApiFailed] = useState(false);
+	const [isApiRequestDone, setApiRequestDone] = useState(false);
+	const appData = useAppData();
+
+	useEffect(() => {
+
+		// TODO: Do API call to fetch stuff.
+		setApiRequestDone(true);
+
+	}, []);
+
+	if (!isApiRequestDone) return <></>;
+	if (!apiFailed) return <Unavailable />;
 
 	return (
 		<>
-			<AppDataProvider>
-				<header>
-					<Toolbar />
-				</header>
-				<main>
-					<Canvas />
-				</main>
-			</AppDataProvider>
+			<header>
+				<Toolbar />
+			</header>
+			<main>
+				<Canvas />
+			</main>
 		</>
 	);
-}
+};
 
 export default App;

@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   Unavailable.scss                                   :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: W2Wizard <w2.wizzard@gmail.com>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/08/28 01:18:46 by W2Wizard      #+#    #+#                 */
+/*   Updated: 2022/08/28 01:18:46 by W2Wizard      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+html, body, #root {
+	height: 100%;
+	margin: 0px;
+}
+
+a {
+	color: lightcoral;
+}
+
+#logo {
+    position: absolute;
+	margin: 16px;
+    width: 5vh;
+    height: 5vh;
+}
+
+#unavailable {
+	min-height: 100%;
+
+	color: var(--foreground);
+	text-align: center;
+	font-weight: bold;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
