@@ -110,7 +110,7 @@ const RenderMainContent = () => {
 	}, []);
 
 	if (!isApiRequestDone) return <></>;
-	if (!apiFailed) return <Unavailable />;
+	if (apiFailed) return <Unavailable />;
 
 	return (
 		<>
