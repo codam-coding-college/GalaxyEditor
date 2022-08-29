@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/29 10:36:00 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/29 13:25:35 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ import Canvas from "./Containers/Canvas/Canvas";
 import Toolbar from "./Containers/Toolbar/Toolbar";
 import { NameIDCollection, Project } from "./Utilities/Types";
 import { createContext, useContext, useEffect, useState } from "react";
-import Api42 from "@codam/fast42";
 
 ////////////////////////////////////////////////////////////////////////////////
 // APP Context
@@ -25,9 +24,6 @@ import Api42 from "@codam/fast42";
  * App global context interface, used to transport data between toolbar and canvas back and forward.
  */
 export interface AppContextType {
-	/** API interface */
-	api: Api42;
-	updateAPI: React.Dispatch<React.SetStateAction<Api42>>;
 
 	/** Array of all the projects of the given cursus. */
 	projects: Project[];
@@ -56,7 +52,6 @@ const AppContext = createContext<AppContextType>(null!);
  * @returns The App context provider.
  */
 const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
-	const [api, setAPI] = useState<Api42>(null!);
 	const [projects, setProjects] = useState<Project[]>(null!);
 	const [cursus, setCursus] = useState<NameIDCollection>(null!);
 	const [campus, setCampus] = useState<NameIDCollection>(null!);
@@ -64,8 +59,6 @@ const AppDataProvider = ({ children }: { children: React.ReactNode }) => {
 
 	// Construct the object
 	const value: AppContextType = {
-		api: api,
-		updateAPI: setAPI,
 
 		focusProject: focusProject,
 		updateFocusProject: setFocusProject,
@@ -106,7 +99,7 @@ const RenderMainContent = () => {
 
 		fetch("/api")
 		.then((res) => res.json())
-		.then((data) => console.log("Backend says:", data));
+		.then((data) => console.log("Backend says:", JSON.stringify(data)));
 
 		// TODO: Do API call to fetch stuff.
 		setApiFailed(false);
