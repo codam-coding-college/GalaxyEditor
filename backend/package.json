@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for the graph editor",
+  "main": "index.ts",
+  "scripts": {
+    "build": "npx tsc",
+	"start": "node ./build/index.js"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "W2Wizard",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.13",
+    "typescript": "^4.8.2"
+  }
+}

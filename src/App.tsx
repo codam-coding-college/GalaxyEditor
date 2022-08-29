@@ -6,7 +6,7 @@
 /*   By: lde-la-h <lde-la-h@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/25 11:01:54 by lde-la-h      #+#    #+#                 */
-/*   Updated: 2022/08/25 14:36:56 by W2Wizard      ########   odam.nl         */
+/*   Updated: 2022/08/29 10:36:00 by W2Wizard      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,12 @@ const RenderMainContent = () => {
 
 	useEffect(() => {
 
+		fetch("/api")
+		.then((res) => res.json())
+		.then((data) => console.log("Backend says:", data));
+
 		// TODO: Do API call to fetch stuff.
+		setApiFailed(false);
 		setApiRequestDone(true);
 
 	}, []);

@@ -7,6 +7,27 @@
 </div>
 </br>
 
+# About
 An opensource tool that lets you modify the galaxy graph or 'Holy'graph of Intra (V2).
 
 <img width="1382" alt="Screen Shot 2022-08-23 at 10 59 29 AM" src="https://user-images.githubusercontent.com/63303990/186117654-5cae85d6-c2a0-4ceb-8c54-a481d165a1b5.png">
+
+
+## Setup
+
+As of now building is a bit rough ...
+
+```bash
+npm install --prefix ./backend
+npm install
+```
+
+Start the backend:
+```bash
+npm run start --prefix ./backend
+```
+
+Start the frontend:
+```bash
+npm run start
+```
